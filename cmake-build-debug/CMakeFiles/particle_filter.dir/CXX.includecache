@@ -41,12 +41,8 @@ algorithm
 -
 iostream
 -
-numeric
--
 particle_filter.h
 /home/kvasnyj/Dropbox/3. Localization/CarND-Kidnapped-Vehicle-Project/src/particle_filter.h
-helper_functions.h
-/home/kvasnyj/Dropbox/3. Localization/CarND-Kidnapped-Vehicle-Project/src/helper_functions.h
 
 /home/kvasnyj/Dropbox/3. Localization/CarND-Kidnapped-Vehicle-Project/src/particle_filter.h
 helper_functions.h
