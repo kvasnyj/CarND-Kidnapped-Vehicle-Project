@@ -137,9 +137,10 @@ void ParticleFilter::updateWeights(double sensor_range, double std_landmark[],
 
             double d = dist(x1, y1, x2, y2);
             if (d <= sensor_range) {
-                x2 = delta_x * cos(theta1) + delta_y * std::sin(theta1);
-                y2 = delta_y * cos(theta1) - delta_x * sin(theta1);
-                LandmarkObs l = {id2, x2, y2}; // landmark in car coordinates
+                // http://planning.cs.uiuc.edu/node99.html
+                x2 = delta_x * cos(theta1) - delta_y * sin(theta1);
+                y2 = delta_x * sin(theta1) + delta_y * cos(theta1);
+                LandmarkObs l = {id2, x2, y2};
                 predicted_landmarks.push_back(l);
             }
         }
