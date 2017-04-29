@@ -19,7 +19,7 @@ void ParticleFilter::init(double x, double y, double theta, double std[]) {
     std::normal_distribution<double> dist_y(y, std[1]);
     std::normal_distribution<double> dist_psi(theta, std[2]);
 
-    num_particles = 1000;
+    num_particles = 100;
     for (int i = 0; i < num_particles; i++) {
         Particle p =
                 {
@@ -105,8 +105,8 @@ void ParticleFilter::updateWeights(double sensor_range, double std_landmark[],
             double d = dist(x1, y1, x2, y2);
             if (d <= sensor_range) {
                 // http://planning.cs.uiuc.edu/node99.html
-                x2 = delta_x * cos(theta) - delta_y * sin(theta);
-                y2 = delta_x * sin(theta) + delta_y * cos(theta);
+                x2 = delta_x * cos(theta) + delta_y * sin(theta);
+                y2 = delta_y * cos(theta) - delta_x * sin(theta);
 
                 LandmarkObs l = {id, x2, y2};
                 predicted_landmarks.push_back(l);
